@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="login test">
+    <test name="wrong password">
+        <parameter name="username" value="Admin"></parameter>
+        <parameter name="password" value="admin"></parameter>
+        <classes>
+            <class name="dataDriven.loginTest"/>
+        </classes>
+    </test>
+<!--    <test name="wrong username">-->
+<!--        <parameter name="username" value="Admi"></parameter>-->
+<!--        <parameter name="password" value="admin123"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="dataDriven.loginTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="both wrong">-->
+<!--        <parameter name="username" value="Ain"></parameter>-->
+<!--        <parameter name="password" value="admi"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="dataDriven.loginTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="both correct">-->
+<!--        <parameter name="username" value="Admin"></parameter>-->
+<!--        <parameter name="password" value="admin123"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="dataDriven.loginTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>
