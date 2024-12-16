@@ -8,6 +8,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
+
+import static pageObjects.webDriverManager.webDriverInitializer;
+
 public class ButtonExample {
     WebDriver driver;
     @AfterClass
@@ -16,7 +19,7 @@ public class ButtonExample {
     }
     @Test
     public void setup(){
-        driver = new ChromeDriver();
+        WebDriver driver = webDriverInitializer("Chrome");
         driver.get("https://leafground.com/button.xhtml");
         // boolean in enabled/disabled
         WebElement disabledButton = driver.findElement(By.xpath("//*[@id='j_idt88:j_idt92']"));
