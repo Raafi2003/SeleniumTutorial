@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="AllTestCases" parallel="methods" thread-count="10" verbose="10">
-    <parameter name="Name" value="Raafih"></parameter>
-    <parameter name="age" value="21"></parameter>
+<suite name="AllTestCases" parallel="classes" thread-count="10" verbose="10">
     <test name="DummyTest">
         <classes>
-<!--            <class name="part1.attributesPractice"></class>-->
-<!--            <class name="part1.ButtonExample"></class>-->
-            <class name="part1.FirstTest"></class>
+            <class name="ExtentReport.BaseSetup"/>
+            <class name="part2.TextBoxTest"/>
+            <class name="part2.DropdownTest"/>
+            <class name="part2.ButtonTest"/>
         </classes>
     </test>
 </suite>
