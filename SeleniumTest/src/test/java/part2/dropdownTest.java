@@ -19,6 +19,7 @@ import static pageObjects.webDriverManager.webDriverInitializer;
 
 public class dropdownTest{
     WebDriver driver = webDriverInitializer("Chrome");
+
     @AfterClass
     public void tearDown(){
         driver.quit();
@@ -28,7 +29,7 @@ public class dropdownTest{
 
         driver.get("https://leafground.com/select.xhtml");
 
-        WebElement firstDropDown = driver.findElement(By.xpath("//*[@id='j_idt87']/div/div[1]/div[1]/div/div/select"));
+        WebElement firstDropDown = driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[2]/form/div/div[1]/div[1]/div/div/select"));
         Select select1 = new Select(firstDropDown);
         select1.selectByIndex(1);
 

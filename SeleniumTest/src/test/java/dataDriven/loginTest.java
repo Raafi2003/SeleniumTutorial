@@ -24,7 +24,7 @@ public class loginTest {
         userName.sendKeys(username);
         WebElement password = driver.findElement(By.name("password"));
         password.sendKeys(passWord);
-        WebElement loginBtn = driver.findElement(By.xpath("//*[@id='app']/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button"));
+        WebElement loginBtn = driver.findElement(By.xpath("/html/body/div/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button"));
         loginBtn.click();
 
     }

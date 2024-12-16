@@ -25,18 +25,18 @@ public class ButtonExample {
 
         driver.get("https://leafground.com/button.xhtml");
 
-        WebElement disabledButton = driver.findElement(By.xpath("//*[@id='j_idt88:j_idt92']"));
+        WebElement disabledButton = driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[2]/form/div/div[1]/div[2]/button"));
         Boolean isButtonEnabled = disabledButton.isEnabled();
         System.out.print(isButtonEnabled);
 
         // position
-        WebElement pbtn = driver.findElement(By.xpath("//*[@id='j_idt88:j_idt94']"));
+        WebElement pbtn = driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[2]/form/div/div[1]/div[3]/button"));
         Point p = pbtn.getLocation();
         System.out.println(p.getX());
         System.out.println(p.getY());
 
         // color
-        WebElement colbtn = driver.findElement(By.id("j_idt88:j_idt96"));
+        WebElement colbtn = driver.findElement(By.id("/html/body/div[1]/div[5]/div[2]/form/div/div[1]/div[4]/button"));
         String color = colbtn.getCssValue("background-color");
         System.out.println(color);
 

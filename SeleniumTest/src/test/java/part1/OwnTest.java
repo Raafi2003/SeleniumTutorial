@@ -14,7 +14,7 @@ public class OwnTest {
     public void setup(){
         driver.manage().window().maximize();
         driver.get("http://127.0.0.1:5500/index.html");
-        WebElement inputField = driver.findElement(By.xpath("//*[@id='input1']"));
+        WebElement inputField = driver.findElement(By.id("input1"));
         Boolean isInputFieldEnabled =  inputField.isEnabled();
         System.out.println(isInputFieldEnabled);
     }

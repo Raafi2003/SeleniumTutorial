@@ -10,10 +10,10 @@ public class webDriverManager {
         
         switch (browser.toLowerCase()){
             case "chrome":
-                System.setProperty("webdriver.chrome.driver", "/Users/raafih-tt0584/Downloads/chromedriver-mac-arm64/chromedriver");
+//                System.setProperty("webdriver.chrome.driver", "/Library/chromedriver");
                 return new ChromeDriver();
             case "firefox":
-                System.setProperty("webdriver.safari.driver", "/Users/raafih-tt0584/Downloads/geckodriver");
+                System.setProperty("webdriver.safari.driver", "/Library/chromedriver");
                 return new FirefoxDriver();
             default:
                 throw new IllegalArgumentException("Unsupported browser: " + browser);
