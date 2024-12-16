@@ -11,15 +11,19 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
+import static pageObjects.webDriverManager.webDriverInitializer;
+
 public class buttonTest {
-    WebDriver driver;
+    WebDriver driver = webDriverInitializer("Chrome");
     @AfterClass
     public void tearDown(){
         driver.quit();
     }
     @Test
     public void setup() throws InterruptedException{
-        driver = new ChromeDriver();
+
         driver.get("https://leafground.com/button.xhtml");
 
         WebElement firstButton = driver.findElement(By.xpath("//*[@id='j_idt88:j_idt90']"));
@@ -27,7 +31,7 @@ public class buttonTest {
 
         String title = driver.getTitle();
         System.out.println(title);
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         driver.navigate().back();
 
         WebElement blockedButton = driver.findElement(By.xpath("//*[@id='j_idt88:j_idt92']"));
@@ -43,20 +47,20 @@ public class buttonTest {
         System.out.println("X - "+point.getX());
         System.out.println("Y - "+point.getY());
 
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 
         WebElement saveButton = driver.findElement(By.xpath("//*[@id='j_idt88:j_idt96']"));
         System.out.println("Save Button Color: "+saveButton.getCssValue("background-color"));
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
         WebElement sizeButton = driver.findElement(By.xpath("//*[@id='j_idt88:j_idt98']"));
         System.out.println("Size Button Height: "+ sizeButton.getSize().getHeight());
         System.out.println("Size Button Width: "+ sizeButton.getSize().getWidth());
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 
         WebElement colorButton = driver.findElement(By.xpath("//*[@id='j_idt88:j_idt100']"));
         new Actions(driver).moveToElement(colorButton).perform();
         System.out.println("Color after hover: "+colorButton.getCssValue("background-color"));
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 }

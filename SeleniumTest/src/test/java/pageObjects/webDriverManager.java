@@ -7,6 +7,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class webDriverManager {
     public static WebDriver webDriverInitializer(String browser){
+        
         switch (browser.toLowerCase()){
             case "chrome":
                 System.setProperty("webdriver.chrome.driver", "/Users/raafih-tt0584/Downloads/chromedriver-mac-arm64/chromedriver");

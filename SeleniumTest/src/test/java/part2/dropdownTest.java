@@ -1,5 +1,6 @@
 package part2;
 
+import java.time.Duration;
 import java.util.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,15 +15,17 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
+import static pageObjects.webDriverManager.webDriverInitializer;
+
 public class dropdownTest{
-    WebDriver driver;
+    WebDriver driver = webDriverInitializer("Chrome");
     @AfterClass
     public void tearDown(){
         driver.quit();
     }
     @Test
     public void setup() throws InterruptedException{
-        driver = new ChromeDriver();
+
         driver.get("https://leafground.com/select.xhtml");
 
         WebElement firstDropDown = driver.findElement(By.xpath("//*[@id='j_idt87']/div/div[1]/div[1]/div/div/select"));
@@ -32,6 +35,6 @@ public class dropdownTest{
         List<WebElement> optionList = select1.getOptions();
         System.out.println(optionList.size());
 
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 }

@@ -10,11 +10,15 @@ import org.openqa.selenium.Keys;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 import java.util.*;
+
+import static pageObjects.webDriverManager.webDriverInitializer;
 
 public class window {
 
-    WebDriver driver;
+    WebDriver driver = webDriverInitializer("Chrome");
     @AfterClass
     public void tearDown(){
         driver.quit();
@@ -22,7 +26,6 @@ public class window {
 
     @Test
     public void setup() throws InterruptedException{
-        driver = new ChromeDriver();
         driver.get("https://leafground.com/window.xhtml");
 
         String oldWindow = driver.getWindowHandle();
@@ -31,16 +34,15 @@ public class window {
         WebElement button_1 = driver.findElement(By.xpath("//*[@id='j_idt88:new']"));
         button_1.click();
 
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         Set<String> windowsSet = driver.getWindowHandles();
         for(String win:windowsSet){
             if(!win.equals(oldWindow)){
                 driver.switchTo().window(win);
             }
         }
-//        Thread.sleep(1000);1000
 //        driver.switchTo().window(oldWindow);
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 //        System.out.println(driver.getWindowHandle());
     }
 

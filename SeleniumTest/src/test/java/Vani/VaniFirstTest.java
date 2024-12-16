@@ -9,9 +9,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
+import static pageObjects.webDriverManager.webDriverInitializer;
+
 public class VaniFirstTest {
 
-    WebDriver driver;
+    WebDriver driver = webDriverInitializer("Chrome");
     @AfterTest
     public void tearDown() {
 //        Thread.sleep(3000);
@@ -19,7 +21,6 @@ public class VaniFirstTest {
     }
     @Test(priority = 0)
     public void setup() {
-        driver = new ChromeDriver();
         driver.get("https://www.vanihq.com/");
         driver.findElement(By.linkText("Sign in")).click();
         driver.findElement(By.id("login_id")).sendKeys("raafih.s@zohocorp.com");

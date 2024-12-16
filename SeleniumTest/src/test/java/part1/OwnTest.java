@@ -5,8 +5,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 
+import static pageObjects.webDriverManager.webDriverInitializer;
+
 public class OwnTest {
-    WebDriver driver = new ChromeDriver();
+    WebDriver driver = webDriverInitializer("Chrome");
+
     @Test
     public void setup(){
         driver.manage().window().maximize();

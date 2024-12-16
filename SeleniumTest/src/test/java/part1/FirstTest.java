@@ -13,11 +13,13 @@ import org.testng.annotations.AfterClass;
 
 import javax.swing.*;
 
+import static pageObjects.webDriverManager.webDriverInitializer;
+
 public class FirstTest {
-    WebDriver driver;
+    WebDriver driver = webDriverInitializer("Chrome");
+
     @BeforeClass
     public void setup(){
-        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.google.com");
     }
@@ -28,7 +30,6 @@ public class FirstTest {
     @Test()
     public void firstTest() throws InterruptedException{
         driver.findElement(By.id("APjFqb")).sendKeys("Hello"+Keys.RETURN);
-//        Thread.sleep(3000);
 //        new Actions(driver).keyDown(Keys.RETURN).perform();
     }
     @Test()

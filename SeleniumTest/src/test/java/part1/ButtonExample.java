@@ -12,19 +12,23 @@ import org.testng.annotations.Test;
 import static pageObjects.webDriverManager.webDriverInitializer;
 
 public class ButtonExample {
-    WebDriver driver;
+    WebDriver driver = webDriverInitializer("Chrome");
+
     @AfterClass
     public void tearDown(){
         driver.quit();
     }
+
     @Test
     public void setup(){
-        WebDriver driver = webDriverInitializer("Chrome");
+
+
         driver.get("https://leafground.com/button.xhtml");
-        // boolean in enabled/disabled
+
         WebElement disabledButton = driver.findElement(By.xpath("//*[@id='j_idt88:j_idt92']"));
         Boolean isButtonEnabled = disabledButton.isEnabled();
         System.out.print(isButtonEnabled);
+
         // position
         WebElement pbtn = driver.findElement(By.xpath("//*[@id='j_idt88:j_idt94']"));
         Point p = pbtn.getLocation();

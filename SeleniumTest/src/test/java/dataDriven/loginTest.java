@@ -9,14 +9,17 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.Duration;
+
+import static pageObjects.webDriverManager.webDriverInitializer;
+
 public class loginTest {
-    WebDriver driver;
+    WebDriver driver = webDriverInitializer("Chrome");
     @Test
     @Parameters({"username", "password"})
     public void setup(String username, String passWord) throws InterruptedException{
-        driver = new ChromeDriver();
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         WebElement userName = driver.findElement(By.name("username"));
         userName.sendKeys(username);
         WebElement password = driver.findElement(By.name("password"));

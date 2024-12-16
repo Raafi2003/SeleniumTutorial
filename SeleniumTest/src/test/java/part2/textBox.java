@@ -1,4 +1,4 @@
-package AdvancedBasics;
+package part2;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,25 +9,28 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
+import static pageObjects.webDriverManager.webDriverInitializer;
+
 public class textBox {
-    WebDriver driver;
+    WebDriver driver = webDriverInitializer("Chrome");
     @AfterClass
     public void tearDown(){
         driver.quit();
     }
     @Test
     public void setup() throws InterruptedException{
-        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://leafground.com/input.xhtml");
 
         WebElement nameBox = driver.findElement(By.xpath("//*[@id='j_idt88:name']"));
         nameBox.sendKeys("Raafih");
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 
         WebElement appendBox = driver.findElement(By.xpath("//*[@id='j_idt88:j_idt91']"));
         appendBox.sendKeys(", India");
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
         WebElement verifyDisabledBox = driver.findElement(By.xpath("//*[@id='j_idt88:j_idt93']"));
         boolean isEnabled = verifyDisabledBox.isEnabled();
@@ -40,7 +43,7 @@ public class textBox {
         WebElement clearText = driver.findElement(By.xpath("//*[@id='j_idt88:j_idt95']"));
         clearText.clear();
         clearText.sendKeys("hello");
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 
         WebElement retrieve = driver.findElement(By.xpath("//*[@id='j_idt88:j_idt97']"));
         String retrieved = retrieve.getAttribute("value");
@@ -48,6 +51,6 @@ public class textBox {
 
         WebElement emailBox = driver.findElement(By.xpath("//*[@id='j_idt88:j_idt99']"));
         emailBox.sendKeys("sraafih810@gmail.com"+Keys.TAB);
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
 }

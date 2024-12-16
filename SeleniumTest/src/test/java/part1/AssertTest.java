@@ -16,6 +16,7 @@ public class AssertTest {
 //        Assert.assertEquals(str, "sr"); // fails
         Assert.assertTrue(valid, "It is false"); // verifies if the given condition is true, if false message is displayed
 //        Assert.assertFalse(valid, "It is true"); //fails - verifies if the given condition is false, if not message is displayed
+
         WebDriver driver = webDriverInitializer("chrome");
 
     }
